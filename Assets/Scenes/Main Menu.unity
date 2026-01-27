@@ -865,7 +865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -187, y: 155}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371287750
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 300, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!1 &410087039
@@ -2839,9 +2839,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectScreen
   characterList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4429d9e9c32eceb4ea7a2f5cd4851575, type: 2}
+  - {fileID: 11400000, guid: 9dc3ec902de17b64d9f4a9becb0c085e, type: 2}
   parent: {fileID: 371287749}
   buttonPrefab: {fileID: 1616842466665456991, guid: 45debfc98ef58244e96ea0b9e12afe69, type: 3}
   OnCharacterSelected:
