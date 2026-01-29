@@ -12,11 +12,11 @@ public class CharacterSO : ScriptableObject
 
 public enum WeaponType
 {
-    SWORD,
-    SHIELD,
-    STAFF,
-    GUN,
-    FLAMETHROWER
+    MAC_10,
+    M4_CARBINE,
+    REMINGTON_870,
+    LASER_RIFLE,
+    PLASMA_RIFLE
 }
 
 public enum Skin

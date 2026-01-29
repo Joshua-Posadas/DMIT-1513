@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class WeaponSelectScreen : MonoBehaviour
 {
     public string[] customizationOptions;
-    public GameObject buttonPrefab;
+    public GameObject weaponPrefab;
     public Transform parent;
     public UnityEvent OnWeaponSelected;
 
@@ -20,13 +20,13 @@ public class WeaponSelectScreen : MonoBehaviour
     {
         foreach (string option in customizationOptions)
         {
-            GameObject tmp = Instantiate(buttonPrefab, parent);
+            GameObject tmp = Instantiate(weaponPrefab, parent);
             TMP_Text t = tmp.GetComponentInChildren<TMP_Text>();
             t.text = option;
 
-            Button b = tmp.GetComponent<Button>();
-            b.onClick.AddListener(delegate { CharacterSelectSingleton.Instance.SetWeaponType(option); });
-            b.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); }
+            Button c = tmp.GetComponent<Button>();
+            c.onClick.AddListener(delegate { CharacterSelectSingleton.Instance.SetWeaponType(option); });
+            c.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); }
                 );
         }
     }
