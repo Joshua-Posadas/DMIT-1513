@@ -16,6 +16,11 @@ public class WeaponSelectScreen : MonoBehaviour
 
     }
 
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void InitializeWeaponSelectScreen()
     {
         foreach (string option in customizationOptions)
@@ -26,8 +31,9 @@ public class WeaponSelectScreen : MonoBehaviour
 
             Button c = tmp.GetComponent<Button>();
             c.onClick.AddListener(delegate { CharacterSelectSingleton.Instance.SetWeaponType(option); });
-            c.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); }
-                );
+            c.onClick.AddListener(delegate { OnWeaponSelected?.Invoke(); });
+            c.onClick.AddListener(() => gameObject.SetActive(false));
         }
+        Show();
     }
 }

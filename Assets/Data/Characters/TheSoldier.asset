@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: The Soldier
   characterSprite: {fileID: 21300000, guid: e8520e785645b0247aaa2f8facc1ff4f, type: 3}
   prefab: {fileID: 1887223773131488185, guid: 29a2ebb5f668edf4c9c1e992da907fe7, type: 3}
-  weaponType: 4
+  weaponType: 1
