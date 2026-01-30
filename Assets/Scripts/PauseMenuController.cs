@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class PauseMenuController : MonoBehaviour
 {
+    // I couldn't figure out a way to make the menu close by pressing escape again
+    //      without breaking the UI
+
     public GameObject pauseMenuUI;
     private InputAction pauseAction = new InputAction(binding: "<Keyboard>/escape");
 
