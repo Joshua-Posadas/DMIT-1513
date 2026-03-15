@@ -13,6 +13,10 @@ public class ShooterPlayerMovement : MonoBehaviour
     private Animator animator;
     public float movementSpeed;
 
+    //Jump feature
+    public InputAction jumpInput;
+    public float jumpForce = 5f;
+    private bool isGrounded = true;
 
     private void Awake()
     {
@@ -22,6 +26,9 @@ public class ShooterPlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+
+        jumpInput.Enable();
+        jumpInput.performed += OnJump;
     }
 
     private void ReadMoveInput(InputAction.CallbackContext context)
@@ -36,6 +43,13 @@ public class ShooterPlayerMovement : MonoBehaviour
 
     }
 
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (!isGrounded) return;
+
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+    }
 
     private void Update()
     {
@@ -47,4 +61,12 @@ public class ShooterPlayerMovement : MonoBehaviour
         rb.Move(transform.position + deltaMovement, transform.rotation);
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
 }

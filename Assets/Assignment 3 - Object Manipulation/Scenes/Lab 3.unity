@@ -635,6 +635,24 @@ MonoBehaviour:
     m_Flags: 0
   cameraController: {fileID: 1561783811}
   movementSpeed: 6
+  jumpInput:
+    m_Name: Jump Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 63bc3af8-8371-4db6-bc3b-848c2f7b560c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e8ff5cfb-c8e0-4dc9-a5fb-12a9a5686b4d
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump Input
+      m_Flags: 0
+    m_Flags: 0
+  jumpForce: 5
 --- !u!54 &1561783809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -815,7 +833,7 @@ GameObject:
   - component: {fileID: 1588280621}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
