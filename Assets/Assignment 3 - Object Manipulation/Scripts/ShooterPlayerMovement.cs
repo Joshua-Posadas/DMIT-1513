@@ -13,7 +13,7 @@ public class ShooterPlayerMovement : MonoBehaviour
     private Animator animator;
     public float movementSpeed;
 
-    //Jump feature
+    // Jump feature
     public InputAction jumpInput;
     public float jumpForce = 5f;
     private bool isGrounded = true;
