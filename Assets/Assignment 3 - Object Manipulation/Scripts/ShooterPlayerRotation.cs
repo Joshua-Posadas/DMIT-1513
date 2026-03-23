@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class ShooterPlayerRotation : MonoBehaviour
 {
     public InputAction rotationInput;

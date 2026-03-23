@@ -1,6 +1,5 @@
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using TMPro.Examples;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +30,26 @@ public class ShooterPlayerMovement : MonoBehaviour
         jumpInput.performed += OnJump;
     }
 
+    private void OnEnable()
+    {
+        cameraController.OnFirstPersonCamActivate.AddListener(StopMovement);
+        cameraController.OnThirdPersonCamActivate.AddListener(StopMovement);
+    }
+
+    private void OnDisable()
+    {
+        cameraController.OnFirstPersonCamActivate.RemoveListener(StopMovement);
+        cameraController.OnThirdPersonCamActivate.RemoveListener(StopMovement);
+    }
+
+    private void StopMovement()
+    {
+        moveVector = Vector2.zero;
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isWalkingBack", false);
+        rb.linearVelocity = Vector3.zero;
+    }
+
     private void ReadMoveInput(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
@@ -59,6 +78,12 @@ public class ShooterPlayerMovement : MonoBehaviour
         Vector3 deltaMovement = moveDirection * movementSpeed * Time.deltaTime;
 
         rb.Move(transform.position + deltaMovement, transform.rotation);
+
+        // Game exit 
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Application.Quit();
+        }
     }
 
 
