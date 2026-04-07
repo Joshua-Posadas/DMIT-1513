@@ -8,15 +8,19 @@ public class DoorTryingToOpen : MonoBehaviour
     public AudioClip doorStrainSound;
 
     private bool activated = false;
+    private bool overridden = false;
+
     void Start()
     {
         ActivateDoor();
     }
 
+    // Malfunctioning Door Behaviour
     public void ActivateDoor()
     {
-        if (activated) return;
+        if (activated || overridden) return;
         activated = true;
+
         animator.Play("DoorTryingToOpen");
 
         if (sparkEmitter != null)
@@ -24,6 +28,19 @@ public class DoorTryingToOpen : MonoBehaviour
 
         if (audioSource != null && doorStrainSound != null)
             audioSource.PlayOneShot(doorStrainSound);
+    }
+
+    // Door Open Behaviour
+    public void OverrideOpen()
+    {
+        if (overridden) return;
+        overridden = true;
+
+        if (sparkEmitter != null)
+            sparkEmitter.SetActive(false);
+
+        if (animator != null)
+            animator.enabled = false;
     }
 }
 
